@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { makeExecutableSchema } = require('graphql-tools');
 const { graphiqlExpress, graphqlExpress } = require('apollo-server-express');
 
@@ -24,6 +25,7 @@ const typeDefs = require('./schema');
 const resolvers = require('./resolver');
 
 const app = express();
+app.use(cors('*'));
 
 const PORT = process.env.PORT || 8080;
 
